@@ -20,7 +20,11 @@ jobs:
           - tag: rust
             args: ENABLE_RUST=true
           - tag: all
-            args: ENABLE_C=true ENABLE_NODE=true ENABLE_PYTHON=true ENABLE_RUST=true
+            args: |
+              ENABLE_C=true
+              ENABLE_NODE=true
+              ENABLE_PYTHON=true
+              ENABLE_RUST=true
     runs-on: ubuntu-latest
     permissions:
       contents: read
