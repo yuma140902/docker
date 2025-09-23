@@ -74,4 +74,5 @@ RUN if [ "$ENABLE_PYTHON" = "true" ]; then zsh -i -c 'nvim --headless +"MasonIns
 RUN if [ "$ENABLE_PYTHON" = "true" ]; then zsh -i -c 'nvim --headless +"MasonInstall ruff" sync +qall'; fi
 
 WORKDIR /home/developer
+ENV TERM=xterm-256color
 CMD ["/usr/bin/zsh"]
