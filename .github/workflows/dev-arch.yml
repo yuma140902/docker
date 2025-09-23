@@ -4,8 +4,8 @@ on:
   push:
     branches: ["master"]
     paths:
-      - "./dev-arch/**"
-      - "./.github/**"
+      - "dev-arch/**"
+      - ".github/**"
   schedule:
     - cron: 0 0 * * SUN
 
