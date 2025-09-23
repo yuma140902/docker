@@ -11,6 +11,7 @@ RUN pacman -S --noconfirm \
   git \
   git-cliff \
   github-cli \
+  ghq \
   tig \
   zsh \
   neovim \
