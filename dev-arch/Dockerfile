@@ -73,4 +73,5 @@ RUN if [ "$ENABLE_NODE" = "true" ]; then zsh -i -c 'nvim --headless +"MasonInsta
 RUN if [ "$ENABLE_PYTHON" = "true" ]; then zsh -i -c 'nvim --headless +"MasonInstall pyright" sync +qall'; fi
 RUN if [ "$ENABLE_PYTHON" = "true" ]; then zsh -i -c 'nvim --headless +"MasonInstall ruff" sync +qall'; fi
 
+WORKDIR /home/developer
 CMD ["/usr/bin/zsh"]
