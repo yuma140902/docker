@@ -1,0 +1,40 @@
+name: dev-arch build
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build-and-deploy:
+    strategy:
+      matrix:
+        include:
+          - tag: base
+            args: ""
+          - tag: c
+            args: ENABLE_C=true
+          - tag: node
+            args: ENABLE_NODE=true
+          - tag: python
+            args: ENABLE_PYTHON=true
+          - tag: rust
+            args: ENABLE_RUST=true
+          - tag: all
+            args: ENABLE_C=true ENABLE_NODE=true ENABLE_PYTHON=true ENABLE_RUST=true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          build-args: ${{ matrix.args }}
+          tags: ghcr.io/${{ github.repository_owner }}/dev-arch:${{ matrix.tag }}
