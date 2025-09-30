@@ -5,6 +5,13 @@ ARG ENABLE_NODE=false
 ARG ENABLE_PYTHON=false
 ARG ENABLE_RUST=false
 
+LABEL org.opencontainers.image.title="yuma140902/dev-arch"
+LABEL org.opencontainers.image.description="Development environment based on Arch Linux with zsh, neovim, tmux, and various development tools pre-installed. Using yuma140902/dotfiles-public for configuration."
+LABEL org.opencontainers.image.authors="yuma140902"
+LABEL org.opencontainers.image.url="https://github.com/yuma140902/docker"
+LABEL org.opencontainers.image.documentation="https://github.com/yuma140902/docker"
+LABEL org.opencontainers.image.source="https://github.com/yuma140902/docker"
+
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm \
   base-devel \
