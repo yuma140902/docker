@@ -26,3 +26,7 @@ docker run --rm -dit -p 2222:22 ghcr.io/yuma140902/dev-arch:all
 ssh developer@localhost -p 2222
 # developer のパスワードは developer
 ```
+
+### 利用例
+
+- <https://github.com/yuma140902/dev-arch-demo>
