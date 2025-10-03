@@ -22,5 +22,7 @@ archlinux をベースに、開発用のツールと [yuma140902/dotfiles-public
 ### 実行方法
 
 ```sh
-docker run --rm -it ghcr.io/yuma140902/dev-arch:all
+docker run --rm -dit -p 2222:22 ghcr.io/yuma140902/dev-arch:all
+ssh developer@localhost -p 2222
+# developer のパスワードは developer
 ```

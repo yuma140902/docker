@@ -15,6 +15,7 @@ LABEL org.opencontainers.image.source="https://github.com/yuma140902/docker"
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm \
   base-devel \
+  openssh \
   git \
   git-cliff \
   github-cli \
@@ -42,7 +43,10 @@ RUN pacman -S --noconfirm \
   fzf \
   trash-cli
 
+RUN ssh-keygen -A
+
 RUN groupadd -r developer && useradd -m -r -g developer -s /usr/bin/zsh developer && mkdir /home/developer/repos/
+RUN printf "developer\ndeveloper\n" | passwd developer --stdin
 RUN echo "developer ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /home/developer/repos/dotfiles-public
 USER developer
@@ -82,4 +86,7 @@ RUN if [ "$ENABLE_PYTHON" = "true" ]; then zsh -i -c 'nvim --headless +"MasonIns
 
 WORKDIR /home/developer
 ENV TERM=xterm-256color
-CMD ["/usr/bin/zsh"]
+#CMD ["/usr/bin/zsh"]
+EXPOSE 22
+USER root
+CMD ["/usr/bin/sshd", "-D"]
