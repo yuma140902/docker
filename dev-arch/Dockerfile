@@ -1,4 +1,4 @@
-FROM archlinux:latest@sha256:237637c52069930ed7fc76c76f04b6b6b9cf82c5222ae002b7932df983cb69c1
+FROM archlinux:latest@sha256:d0adc0bcc3bdfeacf9f30abd853c8d4d1dd40b6363e17cc158312a40423e063b
 
 ARG ENABLE_C=false
 ARG ENABLE_NODE=false
