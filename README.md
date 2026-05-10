@@ -1,6 +1,6 @@
 # docker
 
-## dev-arch
+## [**UNMAINTAINED**] dev-arch
 
 archlinux をベースに、開発用のツールと [yuma140902/dotfiles-public](https://github.com/yuma140902/dotfiles-public) をインストールした開発用のコンテナイメージ。docker pull して docker run しても良いし、このイメージをベースに開発用イメージを作っても良い。
 
